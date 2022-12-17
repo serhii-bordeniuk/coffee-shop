@@ -1,0 +1,35 @@
+.footer {
+    .wrapper {
+        .footer__container {
+            padding-top: 30px;
+            padding-bottom: 20px;
+            .footerList {
+                padding: 0;
+                list-style: none;
+                display: flex;
+                gap: 40px;
+                justify-content: center;
+                .listItem {
+                    display: flex;
+                    align-items: flex-end;
+                    a {
+                        text-decoration: none;
+                        color: black;
+                    }
+                }
+            }
+            .footerGroupLogo {
+                margin-top: 31px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 25px;
+                span {
+                    width: 60px;
+                    height: 1px;
+                    background-color: black;
+                }
+            }
+        }
+    }
+}

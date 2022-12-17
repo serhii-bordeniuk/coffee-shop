@@ -1,0 +1,13 @@
+.coffeeItemsList {
+    margin-top: 61px;
+    margin-bottom: 250px;
+    .wrapper {
+        .coffeeItemsList__container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            row-gap: 60px;
+            column-gap: 70px;
+        }
+    }
+}

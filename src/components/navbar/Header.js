@@ -1,5 +1,5 @@
 import React from "react";
-import "./Header.scss";
+import "./header.scss";
 import background from "../../resources/background.jpg";
 import logo from "../../resources/logo.svg";
 
@@ -7,7 +7,7 @@ export const Header = () => {
     return (
         <header className="header" style={{ backgroundImage: `url(${background})` }}>
             <div className="wrapper">
-                <div className="container">
+                <div className="header__container">
                     <div className="headerLinks">
                         <img src={logo} alt="logo" />
                         <a href="" className="mainPageLink">

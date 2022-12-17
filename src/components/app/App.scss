@@ -2,12 +2,18 @@
 
 * {
     font-family: "Merienda", cursive;
+    font-size: 14px;
     font-weight: 400;
     margin: 0;
     box-sizing: border-box;
+    // outline: 1px solid green;
 }
 
-.container {
+.app {
+    overflow-x: hidden;
+}
+
+[class*="__container"] {
     max-width: 830px;
     margin: 0 auto;
     padding: 0 15px;

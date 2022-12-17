@@ -1,0 +1,56 @@
+.searchPanel {
+    margin-top: 48px;
+    .wrapper {
+        .searchPanel__container {
+            display: flex;
+            justify-content: center;
+            gap: 82px;
+            .inputGroup {
+                display: flex;
+                align-items: center;
+                gap: 21px;
+                h3 {
+                }
+                .searchInput {
+                    font-size: 12px;
+                    text-align: center;
+                    padding: 6px 36px;
+                    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+                    border-radius: 4px;
+                    border: none;
+                    max-width: 180px;
+                }
+            }
+            .filterButtons {
+                display: flex;
+                align-items: center;
+                gap: 36px;
+                h3 {
+                }
+                .buttonGroup {
+                    display: flex;
+                    gap: 5px;
+
+                    .filterButton {
+                        font-size: 12px;
+                        background: #ffffff;
+                        border: none;
+                        box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+                        padding: 6px 20px;
+                        cursor: pointer;
+                        &.brazil {
+                            border-radius: 4px 0px 0px 4px;
+                        }
+                        &.columbia {
+                            border-radius: 0px 4px 4px 0px;
+                            padding: 6px 9px;
+                        }
+                    }
+                    .filterButton:hover {
+                        background: #cfcfcf;
+                    }
+                }
+            }
+        }
+    }
+}
