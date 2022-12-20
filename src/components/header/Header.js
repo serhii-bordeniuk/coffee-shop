@@ -2,6 +2,7 @@ import React from "react";
 import "./header.scss";
 import background from "../../resources/background.jpg";
 import logo from "../../resources/logo.svg";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
     return (
@@ -10,9 +11,9 @@ export const Header = () => {
                 <div className="header__container">
                     <div className="headerLinks">
                         <img src={logo} alt="logo" />
-                        <a href="" className="mainPageLink">
+                        <Link to="/" className="mainPageLink">
                             Coffee house
-                        </a>
+                        </Link>
                     </div>
                     <h1 className="pageTitle">Our coffee</h1>
                 </div>

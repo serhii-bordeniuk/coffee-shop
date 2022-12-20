@@ -1,0 +1,53 @@
+.aboutPage {
+    margin-top: 70px;
+    .wrapper {
+        .aboutPage__container {
+            display: flex;
+            gap: 55px;
+
+            .aboutImage {
+            }
+            .aboutGroupInfo {
+                .infoTop {
+                    text-align: center;
+                    .title {
+                        font-size: 24px;
+                    }
+                    .groupLogo {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 25px;
+                        margin-top: 22px;
+                        span {
+                            width: 60px;
+                            height: 1px;
+                            background-color: black;
+                        }
+                    }
+                }
+                .infoBottom {
+                    margin-top: 22px;
+                    .country,
+                    .description,
+                    .price {
+                        font-weight: 700;
+                    }
+
+                    .country {
+                    }
+                    .description {
+                        margin-top: 16px;
+                    }
+                    .price {
+                        margin-top: 16px;
+                        span {
+                            margin-left: 10px;
+                            font-size: 25px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
