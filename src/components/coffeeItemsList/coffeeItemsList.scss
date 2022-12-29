@@ -8,6 +8,20 @@
             justify-content: flex-start;
             row-gap: 60px;
             column-gap: 70px;
+            &.loading {
+                justify-content: center;
+            }
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    .coffeeItemsList {
+        .wrapper {
+            .coffeeItemsList__container {
+                column-gap: 30px;
+                justify-content: center;
+            }
         }
     }
 }

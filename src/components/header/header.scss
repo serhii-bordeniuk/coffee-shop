@@ -8,13 +8,32 @@
 
         .headerLinks {
             display: flex;
-            align-items: flex-end;
-
-            .mainPageLink {
-                text-decoration: none;
-                color: #fff;
+            align-items: center;
+            justify-content: space-between;
+            .headerLeft {
+                gap: 40px;
+                display: flex;
+                align-items: center;
+                .mainPageLink {
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+                    color: #fff;
+                }
+                .itemLink {
+                    cursor: pointer;
+                }
             }
         }
+
+        .headerRight {
+            .cartIcon {
+                width: 35px;
+                height: 35px;
+                cursor: pointer;
+            }
+        }
+
         .pageTitle {
             text-align: center;
             font-size: 40px;

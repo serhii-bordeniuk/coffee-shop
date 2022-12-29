@@ -11,18 +11,15 @@
     gap: 14px;
 
     .itemTopGroup {
+        max-width: 167px;
+        max-height: 115px;
         text-decoration: none;
         text-align: center;
         .coffeeImage {
             cursor: pointer;
+            object-fit: cover;
             max-width: 167px;
-            max-height: 115px;
-        }
-        .title {
-            color: black;
-        }
-        .title:hover {
-            text-decoration: underline;
+            height: 115px;
         }
     }
     .itemBottomGroup {
@@ -30,20 +27,37 @@
         gap: 14px;
         flex-direction: column;
         align-items: flex-end;
+        .countryOfOrigin {
+            max-height: 15px;
+            text-transform: capitalize;
+        }
+        .title {
+            text-decoration: none;
+            color: black;
+            max-height: 15px;
+            cursor: pointer;
+        }
+        .title:hover {
+            text-decoration: underline;
+        }
 
         .priceAndCart {
             display: flex;
             align-items: center;
             gap: 115px;
-            .cart {
+            .cartIcon {
                 padding: 2px;
                 cursor: pointer;
                 width: 25px;
                 height: 25px;
             }
-            .cart:hover {
+            .cartIcon:hover {
                 background-color: #cfcfcf;
                 border-radius: 3px;
+            }
+            .price {
+                max-height: 15px;
+                font-weight: 700;
             }
         }
     }

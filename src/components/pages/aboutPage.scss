@@ -4,8 +4,10 @@
         .aboutPage__container {
             display: flex;
             gap: 55px;
-
             .aboutImage {
+                height: 395px;
+                width: 355px;
+                object-fit: cover;
             }
             .aboutGroupInfo {
                 .infoTop {
@@ -35,7 +37,11 @@
                     }
 
                     .country {
+                        span {
+                            text-transform: capitalize;
+                        }
                     }
+
                     .description {
                         margin-top: 16px;
                     }
@@ -49,5 +55,22 @@
                 }
             }
         }
+    }
+}
+
+@media (max-width: 768px) {
+    .aboutPage {
+        margin-top: 40px;
+        .wrapper {
+            .aboutPage__container {
+                gap: 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    .aboutPage__container {
+        flex-direction: column;
     }
 }
