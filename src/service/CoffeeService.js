@@ -1,19 +1,29 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import axios from "axios";
 
 const CoffeeService = () => {
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
-    const getData = async () => {
+    const [error, setError] = useState(null);
+
+    const getData = useCallback(async () => {
         setLoading(true);
-        const response = await axios.get("https://6308173c46372013f5762546.mockapi.io/coffee");
-        setLoading(false);
-        return response.data;
-    };
+
+        try {
+            const response = await axios.get("https://6308173c46372013f5762546.mockapi.io/coffee");
+            setLoading(false);
+            return response.data;
+        } catch (e) {
+            setLoading(false);
+            setError(e.message);
+        }
+    }, []);
+
+    const clearError = useCallback(() => setError(null), []);
 
     return {
         getData,
         loading,
+        clearError,
     };
 };
 

@@ -3,6 +3,7 @@ import { CoffeeItemsList } from "../coffeeItemsList/CoffeeItemsList";
 import { SearchPanel } from "../searchPanel/SearchPanel";
 import { useState } from "react";
 import CoffeeService from "../../service/CoffeeService";
+import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 
 export const MainPage = () => {
     const [query, setQuery] = useState("");
@@ -49,17 +50,21 @@ export const MainPage = () => {
 
     return (
         <div className="mainPage">
-            <SearchPanel
-                onUpdateSearch={onUpdateSearch}
-                filter={filter}
-                onFilterSelect={onFilterSelect}
-            />
-            <CoffeeItemsList
-                coffeeData={visibleData}
-                query={query}
-                loading={loading}
-                error={error}
-            />
+            <ErrorBoundary>
+                <SearchPanel
+                    onUpdateSearch={onUpdateSearch}
+                    filter={filter}
+                    onFilterSelect={onFilterSelect}
+                />
+            </ErrorBoundary>
+            <ErrorBoundary>
+                <CoffeeItemsList
+                    coffeeData={visibleData}
+                    query={query}
+                    loading={loading}
+                    error={error}
+                />
+            </ErrorBoundary>
         </div>
     );
 };

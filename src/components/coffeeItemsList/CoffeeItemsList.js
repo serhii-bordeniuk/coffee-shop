@@ -2,6 +2,7 @@ import React from "react";
 import "./coffeeItemsList.scss";
 import { CoffeeItem } from "../coffeeItem/CoffeeItem";
 import Spinner from "../spinner/Spinner";
+import ErrorMessage from "../errorMessage/ErrorMessage";
 
 export const CoffeeItemsList = ({ coffeeData, loading, error }) => {
     const renderItems = (arr) => {
@@ -14,7 +15,7 @@ export const CoffeeItemsList = ({ coffeeData, loading, error }) => {
     const items = renderItems(coffeeData);
 
     const spinner = loading ? <Spinner /> : null;
-    const errorMessage = error ? <div>Something went wrong</div> : null;
+    const errorMessage = error ? <ErrorMessage /> : null;
 
     return (
         <div className="coffeeItemsList">

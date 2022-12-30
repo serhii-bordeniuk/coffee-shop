@@ -5,6 +5,7 @@ import { Footer } from "../footer/Footer";
 import { AboutPage } from "../pages/AboutPage";
 import { Cart } from "../cart/Cart";
 import { useState, useEffect } from "react";
+import ErrorMessage from "../errorMessage/ErrorMessage";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -26,6 +27,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<MainPage />} />
                     <Route path="/items/:id" element={<AboutPage />} />
+                    <Route path="*" element={<ErrorMessage />} />
                 </Routes>
                 <Cart cartActive={cartActive} setCartActive={setCartActive} />
                 <Footer />
