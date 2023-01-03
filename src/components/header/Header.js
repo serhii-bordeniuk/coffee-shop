@@ -4,8 +4,13 @@ import background from "../../resources/background.png";
 import logo from "../../resources/logo.svg";
 import shoppingcart from "../../resources/shopping-cart.png";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export const Header = ({ updateActiveCart }) => {
+    const cartCounter = useSelector((state) => {
+        return state.cart.length > 0 ? state.cart.length : null;
+    });
+
     return (
         <header className="header" style={{ backgroundImage: `url(${background})` }}>
             <div className="wrapper">
@@ -24,6 +29,7 @@ export const Header = ({ updateActiveCart }) => {
                                 className="cartIcon"
                                 onClick={() => updateActiveCart(true)}
                             ></img>
+                            <span className="cartCounter">{cartCounter}</span>
                         </div>
                     </div>
                     <h1 className="pageTitle">Our coffee</h1>

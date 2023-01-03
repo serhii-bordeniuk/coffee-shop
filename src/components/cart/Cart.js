@@ -1,8 +1,25 @@
 import "./cart.scss";
 import React from "react";
-import coffee from "../../resources/coffee.jpg";
+import { useSelector, useDispatch } from "react-redux";
+
+import CartItem from "../cartItem/CartItem";
 
 export const Cart = ({ cartActive, setCartActive }) => {
+    const renderItems = (arr) => {
+        const items = arr.map((item) => {
+            return <CartItem item={item} key={item.id} />;
+        });
+        return items;
+    };
+
+    const totalPrice = useSelector((state) => state.totalPrice.toFixed(2));
+
+    const cartData = useSelector((state) => state.cart);
+
+    const items = renderItems(cartData);
+
+    const content = items.length > 0 ? items : <div className="emptyCart">The cart is empty</div>;
+
     return (
         <div className={`cart ${cartActive ? "active" : ""}`} onClick={() => setCartActive(false)}>
             <div
@@ -16,101 +33,10 @@ export const Cart = ({ cartActive, setCartActive }) => {
                     </button>
                 </div>
                 <div className="cartMain">
-                    <div className="cartList">
-                        <div className="cartItem">
-                            <img className="cartItemImage" src={coffee} alt="coffee" />
-                            <div className="cartItemLeft">
-                                <div className="title">AROMISTICO Coffee 1 kg</div>
-                                <div className="country">Columbia</div>
-                            </div>
-                            <div className="cartItemRight">
-                                <div className="buttonsGroup">
-                                    <div className="counterGroup">
-                                        <button className="counterButton dec">-</button>
-                                        <div className="count">1</div>
-                                        <button className="counterButton inc">+</button>
-                                    </div>
-                                    <div className="price">6.99$</div>
-                                </div>
-                                <button className="deleteButton">x</button>
-                            </div>
-                        </div>
-                        <div className="cartItem">
-                            <img className="cartItemImage" src={coffee} alt="coffee" />
-                            <div className="cartItemLeft">
-                                <div className="title">AROMISTICO Coffee 1 kg</div>
-                                <div className="country">Columbia</div>
-                            </div>
-                            <div className="cartItemRight">
-                                <div className="buttonsGroup">
-                                    <div className="counterGroup">
-                                        <button className="counterButton dec">-</button>
-                                        <div className="count">1</div>
-                                        <button className="counterButton inc">+</button>
-                                    </div>
-                                    <div className="price">6.99$</div>
-                                </div>
-                                <button className="deleteButton">x</button>
-                            </div>
-                        </div>
-                        <div className="cartItem">
-                            <img className="cartItemImage" src={coffee} alt="coffee" />
-                            <div className="cartItemLeft">
-                                <div className="title">AROMISTICO Coffee 1 kg</div>
-                                <div className="country">Columbia</div>
-                            </div>
-                            <div className="cartItemRight">
-                                <div className="buttonsGroup">
-                                    <div className="counterGroup">
-                                        <button className="counterButton dec">-</button>
-                                        <div className="count">1</div>
-                                        <button className="counterButton inc">+</button>
-                                    </div>
-                                    <div className="price">6.99$</div>
-                                </div>
-                                <button className="deleteButton">x</button>
-                            </div>
-                        </div>
-                        <div className="cartItem">
-                            <img className="cartItemImage" src={coffee} alt="coffee" />
-                            <div className="cartItemLeft">
-                                <div className="title">AROMISTICO Coffee 1 kg</div>
-                                <div className="country">Columbia</div>
-                            </div>
-                            <div className="cartItemRight">
-                                <div className="buttonsGroup">
-                                    <div className="counterGroup">
-                                        <button className="counterButton dec">-</button>
-                                        <div className="count">1</div>
-                                        <button className="counterButton inc">+</button>
-                                    </div>
-                                    <div className="price">6.99$</div>
-                                </div>
-                                <button className="deleteButton">x</button>
-                            </div>
-                        </div>
-                        <div className="cartItem">
-                            <img className="cartItemImage" src={coffee} alt="coffee" />
-                            <div className="cartItemLeft">
-                                <div className="title">AROMISTICO Coffee 1 kg</div>
-                                <div className="country">Columbia</div>
-                            </div>
-                            <div className="cartItemRight">
-                                <div className="buttonsGroup">
-                                    <div className="counterGroup">
-                                        <button className="counterButton dec">-</button>
-                                        <div className="count">1</div>
-                                        <button className="counterButton inc">+</button>
-                                    </div>
-                                    <div className="price">6.99$</div>
-                                </div>
-                                <button className="deleteButton">x</button>
-                            </div>
-                        </div>
-                    </div>
+                    <div className="cartList">{content}</div>
                 </div>
                 <div className="cartBottom">
-                    <div className="cartBottomTotal">Total price: 150.00$</div>
+                    <div className="cartBottomTotal">{`Total price: ${totalPrice}$`}</div>
                 </div>
             </div>
         </div>

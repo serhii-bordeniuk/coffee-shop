@@ -1,14 +1,22 @@
 import React from "react";
 import "./coffeeItem.scss";
 import cart from "../../resources/cart.png";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart, itemsTotal } from "../../actions";
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export const CoffeeItem = ({ item }) => {
-    const splitted = item.title.split(" ");
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleNavigate = (path, item) => {
         navigate(path, { state: item });
+    };
+
+    const onAddItem = (data) => {
+        dispatch(addToCart(data));
+
+        dispatch(itemsTotal());
     };
 
     return (
@@ -28,17 +36,11 @@ export const CoffeeItem = ({ item }) => {
                         handleNavigate(`/items/${item.id}`, item);
                     }}
                 >
-                    {splitted.map((item) => {
-                        if (item[0]) {
-                            return <span>{item} </span>;
-                        } else {
-                            <span>{item} </span>;
-                        }
-                    })}{" "}
+                    {item.title}
                 </div>
                 <h3 className="countryOfOrigin">{item.country}</h3>
                 <div className="priceAndCart">
-                    <img src={cart} alt="" className="cartIcon" />
+                    <img src={cart} alt="" className="cartIcon" onClick={() => onAddItem(item)} />
 
                     <div className="price">{item.price}$</div>
                 </div>

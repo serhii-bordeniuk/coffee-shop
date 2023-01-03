@@ -32,6 +32,13 @@
                 height: 35px;
                 cursor: pointer;
             }
+            .cartCounter {
+                position: absolute;
+                min-width: 20px;
+                background-color: green;
+                border-radius: 50%;
+                text-align: center;
+            }
         }
 
         .pageTitle {
