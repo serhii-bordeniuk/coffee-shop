@@ -17,7 +17,7 @@ export const MainPage = () => {
     }, []);
 
     const onUpdateSearch = (query) => {
-        setQuery(query);
+        setQuery(query.toLowerCase());
     };
 
     const filterPost = (items, filter) => {
@@ -42,7 +42,7 @@ export const MainPage = () => {
             return items;
         }
         return items.filter((item) => {
-            return item.title.indexOf(query) > -1;
+            return item.title.toLowerCase().includes(query);
         });
     };
 
